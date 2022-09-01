@@ -18,7 +18,7 @@ function displayOptions(param) {
   dropdownDiv.style.display = "flex";
 
   let hideButton = document.getElementById("hide-" + param);
-  hideButton.innerHTML = `<i class="bi bi-chevron-up"></i>`;
+  hideButton.innerHTML = `<i class="fa-solid fa-chevron-up"></i>`;
   hideButton.removeAttribute("onclick"); // Suppression de l'attribut initial (dans ce cas, le onclick activant la fonction displayOptions())
   hideButton.setAttribute("onclick", "hideOptions('" + param + "')"); // Création d'un nouvel attribut onclick appelant la fonction permettant de cacher les menus déroulants
 
@@ -35,7 +35,7 @@ function hideOptions(param) {
   dropdownDiv.style.display = "none";
 
   let hideButton = document.getElementById("hide-" + param);
-  hideButton.innerHTML = `<i class="bi bi-chevron-down"></i>`;
+  hideButton.innerHTML = `<i class="fa-solid fa-chevron-down"></i>`;
   hideButton.removeAttribute("onclick"); // Suppression de l'attribut initial (dans ce cas, le onclick activant la fonction hideOptions())
   hideButton.setAttribute("onclick", "displayOptions('" + param + "')"); // Création d'un nouvel attribut onclick appelant la fonction permettant d'afficher les menus déroulants
 

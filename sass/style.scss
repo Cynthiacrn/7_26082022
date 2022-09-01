@@ -1,3 +1,6 @@
+body {
+  font-family: "Lato", Arial, sans-serif;
+}
 header {
   width: 100%;
   margin: auto;
@@ -256,6 +259,10 @@ header {
   &--utensil {
     background-color: #ed6454;
   }
+}
+
+.select--ingredient {
+  font-family: "Lato", Arial, sans-serif;
 }
 
 @media (min-width: 768px) {
