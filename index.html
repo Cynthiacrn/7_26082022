@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/aca9a1ae0c.js" crossorigin="anonymous"></script>
+    <title>Les Petits plats</title>
+</head>
+<header>
+    <img class="logo" src="./assets/img/les_petits_plats_logo.png" alt="Logo du site les petits plats" />
+</header>
+
+<body>
+    <section class="section--search">
+        <div class="search--searchbar--block">
+            <input class="search--searchbar" type="searchbar" id="searchbar"
+                placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette" />
+            <i id="searchbar-button" class="search--searchbar--button fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <div id="chosen-filters" class="filters--selected"></div>
+        <aside class="filters--dropdown--aside">
+            <div id="ingredient-dropdown-filter" class="filters--dropdown--block">
+                <div class="filters--input--block background--ingredient">
+                    <input type="text" placeholder="Ingrédient" id="ingredient-searchbar"
+                        class="filters--input background--ingredient" onfocus="displayOptions('ingredient')" />
+                    <div id="hide-ingredient" class="filters--input--chevron" onclick="displayOptions('ingredient')">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div id="div-dropdown-ingredient" class="filters--dropdown background--ingredient"></div>
+            </div>
+            <div id="device-dropdown-filter" class="filters--dropdown--block">
+                <div class="filters--input--block background--device">
+                    <input type="text" placeholder="Appareil" id="device-searchbar"
+                        class="filters--input background--device" onfocus="displayOptions('device')" />
+                    <div id="hide-device" class="filters--input--chevron" onclick="displayOptions('device')">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div id="div-dropdown-device" class="filters--dropdown background--device"></div>
+            </div>
+            <div id="utensil-dropdown-filter" class="filters--dropdown--block">
+                <div class="filters--input--block background--utensil">
+                    <input type="text" placeholder="Ustensile" id="utensil-searchbar"
+                        class="filters--input background--utensil" onfocus="displayOptions('utensil')" />
+                    <div id="hide-utensil" class="filters--input--chevron" onclick="displayOptions('utensil')">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div id="div-dropdown-utensil" class="filters--dropdown background--utensil"></div>
+            </div>
+        </aside>
+    </section>
+
+    <section id="results-section" class="recipe--section"></section>
+</body>
+
+<script src="./scripts/index.js"></script>
+<script src="./scripts/helpers.js"></script>
+<script src="./scripts/recipe_factory.js"></script>
+
+</html>
