@@ -18,7 +18,7 @@ function displayOptions(param) {
   dropdownDiv.style.display = "flex";
 
   let hideButton = document.getElementById("hide-" + param);
-  hideButton.innerHTML = `<i class="fa-solid fa-chevron-up"></i>`;
+  hideButton.innerHTML = `<i class="bi bi-chevron-up"></i>`;
   hideButton.removeAttribute("onclick"); // Suppression de l'attribut initial (dans ce cas, le onclick activant la fonction displayOptions())
   hideButton.setAttribute("onclick", "hideOptions('" + param + "')"); // Création d'un nouvel attribut onclick appelant la fonction permettant de cacher les menus déroulants
 
@@ -35,7 +35,7 @@ function hideOptions(param) {
   dropdownDiv.style.display = "none";
 
   let hideButton = document.getElementById("hide-" + param);
-  hideButton.innerHTML = `<i class="fa-solid fa-chevron-down"></i>`;
+  hideButton.innerHTML = `<i class="bi bi-chevron-down"></i>`;
   hideButton.removeAttribute("onclick"); // Suppression de l'attribut initial (dans ce cas, le onclick activant la fonction hideOptions())
   hideButton.setAttribute("onclick", "displayOptions('" + param + "')"); // Création d'un nouvel attribut onclick appelant la fonction permettant d'afficher les menus déroulants
 
@@ -83,7 +83,7 @@ function displayRecipes(data, reciepeArray) {
   }
 }
 
-searchBar.addEventListener("input", (event) => {
+searchBar.addEventListener("change", (event) => {
   searchRecipe(searchBar.value, globalFilterTab);
 }); // Lorsqu'un mot est écrit dans la barre de recherche, on déclenche la fonction de recherche en passant en paramètre la valeur de la recherche
 
@@ -144,20 +144,27 @@ function searchRecipe(searchValue, tagsArray) {
     ); // Affichage de la durée d'execution de la fonction
 
     function searchItemsSearchbar(objectsList, value) {
-      return objectsList.filter(
-        // On filtre le tableau contenant la liste des recettes
-        (objectsList) =>
-          verifyTag(objectsList.name, value) || // Pour les noms de recettes, on cherche lesquels correspondent au mot entré dans la barre de recherche
-          verifyTag(objectsList.description, value) || // Pour les recettes
+      // Fonction de recherche sur la valeur du champ principal
+      let resultsArray = [];
+      for (let i = 0; i < objectsList.length; i++) {
+        if (
+          verifyTag(objectsList[i].name, value) || // Pour les noms de recettes, on cherche lesquels correspondent au mot entré dans la barre de recherche
+          verifyTag(objectsList[i].description, value) || // Pour les recettes
           normalizeArray(
-            objectsList.ustensils // Pour les noms des ustensiles
+            objectsList[i].ustensils // Pour les noms des ustensiles
               .map((ustensils) => ustensils)
           ).includes(normalizeString(value)) ||
           normalizeArray(
-            objectsList.ingredients // Pour les noms des ingrédients
+            objectsList[i].ingredients // Pour les noms des ingrédients
               .map((ingredients) => ingredients.ingredient)
           ).includes(normalizeString(value))
-      );
+        ) {
+          resultsArray.push(objectsList[i]);
+        }
+      }
+      console.log(resultsArray);
+
+      return resultsArray;
     }
 
     let selectedIngredientsArray = []; // Création d'un tableau contenant uniquement les ingrédients sélectionnés
