@@ -236,7 +236,7 @@ function searchRecipe(searchValue, tagsArray) {
       });
     });
 
-    console.log(finalSearchResult);
+    // console.log(finalSearchResult);
 
     if (finalSearchResult.length == 0) {
       // Si aucun objet n'est ajouté au tableau / Aucun résultat ne resort, alors on affiche le message
@@ -244,7 +244,7 @@ function searchRecipe(searchValue, tagsArray) {
     } else {
       displayRecipes(finalSearchResult, searchResults); // Affichage des résultats
     }
-    console.log(searchbarResults);
+    // console.log(searchbarResults);
   } else {
     fetchData(); // Si aucun mot clé n'est présent (barre de recherche ou tags), alors on affiche toutes les recettes
   }
