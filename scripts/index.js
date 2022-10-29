@@ -162,7 +162,7 @@ function searchRecipe(searchValue, tagsArray) {
           resultsArray.push(objectsList[i]);
         }
       }
-      console.log(resultsArray);
+      // console.log(resultsArray);
 
       return resultsArray;
     }
@@ -243,7 +243,7 @@ function searchRecipe(searchValue, tagsArray) {
       });
     });
 
-    console.log(finalSearchResult);
+    // console.log(finalSearchResult);
 
     if (finalSearchResult.length == 0) {
       // Si aucun objet n'est ajouté au tableau / Aucun résultat ne resort, alors on affiche le message
@@ -251,7 +251,7 @@ function searchRecipe(searchValue, tagsArray) {
     } else {
       displayRecipes(finalSearchResult, searchResults); // Affichage des résultats
     }
-    console.log(searchbarResults);
+    // console.log(searchbarResults);
   } else {
     fetchData(); // Si aucun mot clé n'est présent (barre de recherche ou tags), alors on affiche toutes les recettes
   }
@@ -398,7 +398,7 @@ function filterSearch(filter, type) {
   if (filter.target.id.includes(type + "-id-")) {
     let filterSearchBar = document.getElementById(type + "-searchbar");
     filterSearchBar.value = "";
-    console.log(globalFilterTab);
+    // console.log(globalFilterTab);
     let tagToInsert = { name: filter.target.innerText, type: type };
     let chosenFilters = document.getElementById("chosen-filters");
     let alreadySelected = false;
